@@ -82,56 +82,48 @@ h1{
     
 }
 /*main carrosel de imagem*/
-.slider{
-    margin: 0 auto;
-    width: 800px;
-    height: 400px;
+.carousel-container {
+    width: 600px;
+    position: relative;
     overflow: hidden;
 }
-.slides{
-    width: 400%;
-    height: 400px;
+
+.carousel {
     display: flex;
+    position: relative;
 }
-.slides input{
-    display: none;
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
 }
-.slide{
- width: 25%;
- position: relative;
+
+.carousel img {
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
 }
-.slide image{
-    width: 800px;
-}
-.manual-navegation{
+
+button {
     position: absolute;
-    width: 800px;
-    margin-top: -16px;
-    display: flex;
-    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
 }
-.manual-btn{
-border: 2px solid #fff;
-padding: 5px;
-border-radius: 10px;
-cursor: pointer;
-transition: 1s;
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
-.manual-btn:not(:last-child){
-    margin-right: 40px;
+
+.prev {
+    left: 10px;
 }
-.manual-btn:hover{
-    background-color: #ffffff;
-}
-#radio1 :checked ~ .first{
-    margin-left: 0;
-}
-#radio2:checked ~ .first{
-   margin-left: -25%;
-}
-#radio3:checked ~ .first{
-    margin-left: -50%;
-}
-#radio4:checked ~ .first{
-    margin-left: -75%;
+
+.next {
+    right: 10px;
 }
