@@ -141,6 +141,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    gap: 10px;
 }
 
 .radio-buttons input {
@@ -151,3 +152,10 @@ button:hover {
 .radio-buttons input:checked {
     background-color: #4682B4;
 }
+main {
+    display: flex;
+    flex-direction: column;  /* Empilha os carrosséis verticalmente */
+    align-items: center;     /* Centraliza todos os elementos dentro do main */
+    gap: 30px;               /* Espaçamento entre os carrosséis */
+}
+
