@@ -182,30 +182,4 @@ main {
     gap: 30px;               /* espaçamento entre os carrosséis */
 }
 
-.ajuda main {
-    display: flex;
-    flex-direction: column;  /* empilha os carrosséis verticalmente */
-    align-items: center;     /* centraliza todos os elementos dentro do main */
-    gap: 30px;               /* espaçamento entre os carrosséis */
-}	
-h2 {
-    color: white;
-    font-style:italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-}
-p {
-    color: white;
-    font-style: italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-    width: 500px;
-}
 
-footer{
-    position: relative;
-    bottom: -300px;
-    width: 100%;
-}
