@@ -109,7 +109,63 @@ h3 {
     text-align: center;
     margin-top: 20px;
 }
-
+p {
+    color: white;
+    font-style: italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    width: 500px;
+    margin-left: 500px;
+}
+h4 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    color: white;
+    font-style: italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    width: 500px;
+    margin-left: 500px;
+}
+h5 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    color: white;
+    font-style: italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    width: 500px;
+    margin-left: 500px;
+}
+h6 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    color: white;
+    font-style: italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    width: 500px;
+    margin-left: 500px;
+}
 footer{
     position: relative;
     bottom: -300px;
@@ -126,4 +182,21 @@ background-color: rgba(0, 0, 0, 0.397);
     display: flex;
     align-items: center;
     margin-left: -00px;
+}
+
+.contatos {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-left: -70px;
+    margin-top: 70px;
+    color: white;
+}
+.instagram {
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: -134px;
 }
