@@ -1,6 +1,6 @@
 let index = 0;
 
-// Função para mover os slides usando os botões de navegação
+// função para mover os slides usando os botões de navegação
 function moveSlide(step) {
     const slides = document.querySelectorAll('.carousel-images img');
     const totalSlides = slides.length;
@@ -19,7 +19,7 @@ function moveSlide(step) {
     updateRadioSelection();
 }
 
-// Função para atualizar a seleção do radio button
+// função para atualizar a seleção do radio button
 function updateRadioSelection() {
     const radios = document.querySelectorAll('.radio-buttons input');
     radios.forEach((radio, i) => {
@@ -31,10 +31,13 @@ function updateRadioSelection() {
     });
 }
 
-// Função para alterar o slide quando o radio button é clicado
+// função para alterar o slide quando o radio button é clicado
 function changeSlide(slideIndex) {
     index = slideIndex;
     const carouselImages = document.querySelector('.carousel-images');
     carouselImages.style.transform = `translateX(-${index * 600}px)`;
     updateRadioSelection();
 }
+    setInterval(() => {
+    moveSlide(1);
+}, 3000);
