@@ -5,6 +5,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.lupa{
+    height: 30px;
+}
 
 body {
     background-color: rgb(76, 77, 80);
