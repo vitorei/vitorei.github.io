@@ -8,7 +8,6 @@
 .lupa{
     height: 30px;
 }
-
 body {
     background-color: rgb(76, 77, 80);
 }
@@ -303,7 +302,27 @@ main {
   .footer-content {
     padding: 10px;
   }
+  .ti-1{
+    text-align: center;
+  }
+  .ti-2{
+    text-align: center;
+  }
+  .broa{
+    padding: 100px;
+  }
+}
+@media (feConvolveMatrix) {
+    
 }
 .ti-1{
-    margin-left: 630px;
+ text-align: center;
+ color: azure;
+}
+.ti-2{
+    text-align: center;
+    color: azure;
+}
+.broa{
+    padding: 100px;
 }
