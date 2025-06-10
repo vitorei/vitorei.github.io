@@ -241,7 +241,7 @@ main {
 }
 
 /* Estilos responsivos */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   /* Ajustar navegação */
   .nav-list {
     flex-direction: column;
