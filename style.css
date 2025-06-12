@@ -277,12 +277,13 @@ main {
   /* Ajustar grid de cards para uma coluna só */
   .card-container {
     grid-template-columns: 1fr;
-    margin: 20px;
+    margin: 10px;
+    padding: 23px;
   }
 
   /* Ajustar tamanhos dos cartões */
   .card {
-    margin: 10px 0;
+    margin: 10  0px;
   }
 
   /* Ajustar títulos e textos */
