@@ -278,7 +278,7 @@ main {
   .card-container {
     grid-template-columns: 1fr;
     margin: 10px;
-    padding: 23px;
+    padding: 0px;
   }
 
   /* Ajustar tamanhos dos cartões */
