@@ -277,8 +277,8 @@ main {
   /* Ajustar grid de cards para uma coluna só */
   .card-container {
     grid-template-columns: 1fr;
-    margin: 10px;
-    padding: 0px;
+    margin: -7px;
+    padding: 23px;
   }
 
   /* Ajustar tamanhos dos cartões */
