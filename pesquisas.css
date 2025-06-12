@@ -1,5 +1,3 @@
-/* Estilos gerais permanecem os mesmos */
-
 * {
     margin: 0;
     padding: 0;
@@ -96,4 +94,145 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-shadow: 6px 7px black;
     padding-top: 2px;
+}
+
+/* Imagem principal */
+.imagemprincipal {
+    height: 600px;
+    width: 800px;
+    margin-top: 0px;
+}
+
+/* Carrossel */
+.carousel-container {
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Botões do carrossel */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+    z-index: 2;
+}
+
+.next {
+    right: 10px;
+    z-index: 2;
+}
+
+/* Rádio buttons */
+.radio-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.radio-buttons input {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.radio-buttons input:checked {
+    background-color: #4682B4;
+}
+
+/* Rodapé */
+.footer-content {
+    background-color: rgba(13, 13, 13, 0.397);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: -300px;
+    width: 100%;    
+}
+
+/* Contatos list */
+.contatos {
+    list-style: none;
+}
+
+/* Main container com os carrosséis */
+main {
+    display: flex;
+    flex-direction: column;  /* empilha os carrosséis verticalmente */
+    align-items: center;     /* centraliza todos os elementos dentro do main */
+    gap: 30px;               /* espaçamento entre os carrosséis */
+}
+
+/* Grid de cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 125px;
+}
+
+/* Cartões */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 40px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #555;
+    font-size: 14px;
 }
