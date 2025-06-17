@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">marmoraria</h1>
+            <ul class="nav-list">
+                <li><a href="index.html">inicio</a></li>
+                <li><a href="">compra</a></li>
+                <li><a href="ajuda.html">ajuda</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="carousel-container">
+            <button class="prev" onclick="moveSlide(-1)">&#8592;</button>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="imagems/marmorecolorido00-1536x994.jpeg" alt="Imagem 1">
+                    <img src="imagems/5a8c590ea936140d7f6def44.jpg" alt="Imagem 2">
+                    <img src="imagems/marmoraria-barueri.jpg" alt="Imagem 3">
+            </div>
+            </div> 
+           <button class="next" onclick="moveSlide(1)">&#8594;</button>
+           </div> 
+            <!-- radio buttons para controle da imagem -->
+            <div class="radio-buttons">
+                <input type="radio" name="carousel-radio" id="radio1" checked onclick="changeSlide(0)">
+                <input type="radio" name="carousel-radio" id="radio2" onclick="changeSlide(1)">
+                <input type="radio" name="carousel-radio" id="radio3" onclick="changeSlide(2)">
+            </div>
+        </div>
+    </main>
+
+    <section class="broa">
+        <h1 class="ti-1">
+            marmore.
+        </h1>
+
+        <h2 class="ti-2"> TRANSFORMANDO PEDRAS BRUTAS EM OBRA DE ARTE</h2>
+    </section>
+
+     <div class="card-container">
+        <div class="card">
+            <a href="">
+            <img src="imagems/MARMORIZADO-NERO-MARQUINA-1.jpg" alt="Imagem 1">
+            </a>
+            <div class="card-content">
+                <h3>colheres</h3>
+                <p>Descrição do card 1.</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="">
+            <img src="imagems/pngtree-green-marble-texture-background-a-seamless-pattern-of-stone-picture-image_16144070.jpg" alt="Imagem 2">
+            </a>
+            <div class="card-content">
+                <h3>mesas</h3>
+                <p>Descrição do card 2.</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="compra.html">
+            <img src="imagems/196403975-golden-white-marble-background-texture-pattern-design.jpg" alt="Imagem 3">
+            </a>
+            <div class="card-content">
+                <h3>marmores</h3>
+                <p>Descrição do card 3.</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="pesquisas.html">
+            <img src="imagems/whatsapp-image-2024-11-14-at-08-13-48-450x450.jpeg" alt="Imagem 4">
+          </a>
+            <div class="card-content">
+                <h3>bancadas</h3>
+                <p>Descrição do card 4.</p>
+            </div>
+        </div>
+    </div>    
+
+    </nav>
+    <script src="script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Marmoraria. Todos os direitos reservados.</p>
+            <ul class="contatos">    
+                <li><a href="">Instagram<i class="fa fa-facebook"></i></a></li>
+                <li><a href="">Facebook<i class="fa fa-twitter"></i></a></li>
+                <p>(11) 4002-8922</p>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

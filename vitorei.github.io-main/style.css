@@ -1,0 +1,341 @@
+/* Estilos gerais permanecem os mesmos */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.lupa{
+    height: 30px;
+}
+body {
+    background-color: rgb(76, 77, 80);
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    background-color: rgba(13, 13, 13, 0.397);
+    height: 14vh;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Container de navegação */
+.container-wrapper {
+    margin: 20px;
+    padding-left: 70px;
+}
+
+/* Lista de navegação */
+.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 26px;
+    flex-wrap: wrap; /* para quebrar linhas em telas pequenas */
+}
+
+li {
+    letter-spacing: 4px;
+    margin-left: 14px;
+    text-decoration: none;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* Títulos e textos */
+h1 {
+    color: white;
+}
+
+/* Input de busca ou elementos similares */
+.input-wrapper {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 26px;
+    background-color: #ffffff;
+}
+
+.input-wrapper i {
+    color: #beaaaa;
+    cursor: pointer;
+}
+
+.input-wrapper input {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.input-wrapper input:focus-visible {
+    outline: none;
+}
+
+/* Logo */
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 6px 7px black;
+    padding-top: 2px;
+}
+
+/* Imagem principal */
+.imagemprincipal {
+    height: 600px;
+    width: 800px;
+    margin-top: 0px;
+}
+
+/* Carrossel */
+.carousel-container {
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Botões do carrossel */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+    z-index: 2;
+}
+
+.next {
+    right: 10px;
+    z-index: 2;
+}
+
+/* Rádio buttons */
+.radio-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.radio-buttons input {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.radio-buttons input:checked {
+    background-color: #4682B4;
+}
+
+/* Rodapé */
+.footer-content {
+    background-color: rgba(13, 13, 13, 0.397);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: -300px;
+    width: 100%;    
+}
+
+/* Contatos list */
+.contatos {
+    list-style: none;
+}
+
+/* Main container com os carrosséis */
+main {
+    display: flex;
+    flex-direction: column;  /* empilha os carrosséis verticalmente */
+    align-items: center;     /* centraliza todos os elementos dentro do main */
+    gap: 30px;               /* espaçamento entre os carrosséis */
+}
+
+/* Grid de cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+/* Cartões */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 40px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 480px) {
+  /* Ajustar navegação */
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  /* Ajustar container e logo */
+  .container-wrapper {
+    padding-left: 20px;
+  }
+
+  /* Ajustar imagens principais */
+  .imagemprincipal {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Ajustar carrossel container */
+  .carousel-container {
+    width: 100%;
+  }
+
+  /* Ajustar botões do carrossel */
+  button {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  /* Ajustar grid de cards para uma coluna só */
+  .card-container {
+    grid-template-columns: 1fr;
+    margin: -5px;
+    padding: 23px;
+  }
+
+  /* Ajustar tamanhos dos cartões */
+  .card {
+    margin: 10  0px;
+  }
+
+  /* Ajustar títulos e textos */
+  h1 {
+    font-size: 24px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .card-content p {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Ajustar rodapé */
+  .footer-content {
+    padding: 10px;
+  }
+  .ti-1{
+    text-align: center;
+  }
+  .ti-2{
+    text-align: center;
+  }
+  .broa{
+    padding: 100px;
+  }
+}
+@media (feConvolveMatrix) {
+    
+}
+.ti-1{
+ text-align: center;
+ color: azure;
+}
+.ti-2{
+    text-align: center;
+    color: azure;
+}
+.broa{
+    padding: 100px;
+}
+.card-content h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .card-content p {
+    font-size: 12px;
+    text-align: center;
+  }
