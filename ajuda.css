@@ -92,80 +92,95 @@ h2 {
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
+    max-width: auto;
+    font-size: 24px;
 }
-p {
-    color: white;
-    font-style: italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-    width: 500px;
-    margin-left: 500px;
-}
+
 h3 {
     color: white;
     font-style:italic;
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
+    max-width: auto;
+    font-size: 20px;
 }
-p {
-    color: white;
-    font-style: italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-    width: 500px;
-    margin-left: 500px;
-}
+
 h4 {
     color: white;
     font-style:italic;
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
+    max-width: auto;
+    font-size: 24px;
 }
-p {
-    color: white;
-    font-style: italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-    width: 500px;
-    margin-left: 500px;
-}
+
 h5 {
     color: white;
     font-style:italic;
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
+    max-width: auto;
+    font-size: 20px;
 }
-p {
-    color: white;
-    font-style: italic;
-    text-shadow: black -2px -2px 0  ;
-    text-align: center;
-    margin-top: 20px;
-    width: 500px;
-    margin-left: 500px;
-}
+
 h6 {
     color: white;
     font-style:italic;
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
+    max-width: auto;
+    font-size: 24px;
 }
-p {
+.h7 {
     color: white;
-    font-style: italic;
+    font-style:italic;
     text-shadow: black -2px -2px 0  ;
     text-align: center;
     margin-top: 20px;
-    width: 500px;
-    margin-left: 500px;
+    max-width: auto;
+    font-size: 20px;
 }
+.h8 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    max-width: auto;
+    font-size: 24px;
+}
+.h9 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    max-width: auto;
+    font-size: 20px;
+}
+.h10 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    max-width: auto;
+    font-size: 24px;
+}
+.h11 {
+    color: white;
+    font-style:italic;
+    text-shadow: black -2px -2px 0  ;
+    text-align: center;
+    margin-top: 20px;
+    max-width: auto;
+    font-size: 20px;
+}
+
 footer{
     position: relative;
     bottom: -300px;
@@ -177,7 +192,7 @@ background-color: rgba(0, 0, 0, 0.397);
     text-align: center;
     padding: 20px;
     position: relative;
-    bottom: -300px;
+    bottom: -00px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -187,16 +202,25 @@ background-color: rgba(0, 0, 0, 0.397);
 .contatos {
     list-style: none;
     display: flex;
-    margin: 0;
+    margin: 70px 0 0 0;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
-    margin-left: -70px;
+    gap: 40px;
     margin-top: 70px;
     color: white;
+    padding: 100;
 }
-.instagram {
+.facebook {
     height: 80px;
     margin-bottom: 100px;
-    margin-right: -134px;
+    margin-right:  -150px;
 }
+.instagram {
+   
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: -155px;
+    
+}
+
