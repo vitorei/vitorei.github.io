@@ -1,43 +1,30 @@
-let index = 0;
+// Definindo as variáveis
+let slideIndex = 0;
 
-// função para mover os slides usando os botões de navegação
-function moveSlide(step) {
-    const slides = document.querySelectorAll('.carousel-images img');
-    const totalSlides = slides.length;
+// Função para mover o slide
+function moveSlide(n) {
+    const slides = document.querySelectorAll('.carousel-item');
+    slideIndex += n;
 
-    index += step;
-
-    if (index < 0) {
-        index = totalSlides - 1;
-    } else if (index >= totalSlides) {
-        index = 0;
+    if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    } else if (slideIndex >= slides.length) {
+        slideIndex = 0;
     }
 
-    const carouselImages = document.querySelector('.carousel-images');
-    carouselImages.style.transform = `translateX(-${index * 600}px)`;
-
-    updateRadioSelection();
+    updateCarousel(slides);
 }
 
-// função para atualizar a seleção do radio button
-function updateRadioSelection() {
-    const radios = document.querySelectorAll('.radio-buttons input');
-    radios.forEach((radio, i) => {
-        if (i === index) {
-            radio.checked = true;
-        } else {
-            radio.checked = false;
-        }
+// Função para atualizar o carrossel
+function updateCarousel(slides) {
+    // Reseta todos os slides
+    slides.forEach(slide => {
+        slide.style.transform = `translateX(-${slideIndex * 100}%)`;
     });
 }
 
-// função para alterar o slide quando o radio button é clicado
-function changeSlide(slideIndex) {
-    index = slideIndex;
-    const carouselImages = document.querySelector('.carousel-images');
-    carouselImages.style.transform = `translateX(-${index * 600}px)`;
-    updateRadioSelection();
-}
-    setInterval(() => {
-    moveSlide(1);
+// Inicialização automática do carrossel
+setInterval(() => {
+    moveSlide(1);  // Move automaticamente a cada 3 segundos
 }, 3000);
+

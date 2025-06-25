@@ -1,150 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Marmoraria de qualidade, com os melhores produtos em mármore e granito.">
-  <title>Marmoraria - Mármore & Granito</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f4f4f4;
-    }
-
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    nav {
-      text-align: center;
-      background-color: #444;
-      padding: 10px;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    section {
-      padding: 40px;
-      margin: 20px;
-      background-color: #fff;
-    }
-
-    .service-card {
-      display: inline-block;
-      width: 30%;
-      padding: 15px;
-      background-color: #eee;
-      margin: 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .contact-form button {
-      background-color: #333;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background-color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Profissional de Mármore</title>
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Marmoraria Mármore & Granito</h1>
-    <p>Transformando sua casa com qualidade e elegância em mármore e granito.</p>
-  </header>
+    <header>
+        <div class="logo">
+            <h1>Logo Mármore</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#cards">Cards</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#contato">Contato</a>
-  </nav>
+    <main>
+        <!-- Seção Início com Carrossel -->
+        <section id="inicio" class="hero-section">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="marmore1.jpg" alt="Imagem Mármore 1" class="carousel-item">
+                    <img src="marmore2.jpg" alt="Imagem Mármore 2" class="carousel-item">
+                    <img src="marmore3.jpg" alt="Imagem Mármore 3" class="carousel-item">
+                    <img src="marmore4.jpg" alt="Imagem Mármore 4" class="carousel-item">
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
 
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Somos uma marmoraria especializada na produção e instalação de peças de mármore e granito de alta qualidade. Com mais de 10 anos de experiência, oferecemos soluções para bancadas, pisos, pias, escadas e muito mais, sempre com excelência e atenção aos detalhes.</p>
-  </section>
+        <!-- Seção Sobre -->
+        <section id="sobre" class="section">
+            <h2 class="fade-in">Sobre o Site</h2>
+            <p class="slide-in">Este é um site moderno com animações e efeitos de mármore. A ideia é combinar elegância com um toque de inovação.</p>
+            <img src="marmore2.jpg" alt="Detalhe do Mármore" class="about-img">
+        </section>
 
-  <section id="servicos">
-    <h2>Nossos Serviços</h2>
-    
-  </section>
+        <!-- Seção Cards -->
+        <section id="cards" class="section">
+            <h2 class="fade-in">Nossos Cards</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="card1.jpg" alt="Card 1" class="card-img">
+                    <h3>Card 1</h3>
+                    <p>Descrição do card 1. Exploração visual incrível.</p>
+                </div>
+                <div class="card">
+                    <img src="card2.jpg" alt="Card 2" class="card-img">
+                    <h3>Card 2</h3>
+                    <p>Descrição do card 2. Design minimalista e moderno.</p>
+                </div>
+                <div class="card">
+                    <img src="card3.jpg" alt="Card 3" class="card-img">
+                    <h3>Card 3</h3>
+                    <p>Descrição do card 3. Focado em usabilidade e animações.</p>
+                </div>
+                <div class="card">
+                    <img src="card4.jpg" alt="Card 4" class="card-img">
+                    <h3>Card 4</h3>
+                    <p>Descrição do card 4. Inovação e experiência do usuário.</p>
+                </div>
+            </div>
+        </section>
 
-  <section id="contato">
-    <h2>Entre em Contato</h2>
-    <form class="contact-form" onsubmit="return enviarForm()">
-      <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
-      <input type="email" id="email" name="email" placeholder="Seu Email" required>
-      <textarea id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem" required></textarea>
-      <button type="submit">Enviar Mensagem</button>
-    </form>
-  </section>
+        <!-- Seção Contato -->
+        <section id="contato" class="section">
+            <h2 class="fade-in">Contato</h2>
+            <p class="slide-in">Entre em contato para mais informações sobre o nosso trabalho.</p>
+        </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Marmoraria Mármore & Granito - Todos os direitos reservados.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Site Profissional de Mármore. Todos os direitos reservados.</p>
+    </footer>
 
-  <script>
-    function enviarForm() {
-      const nome = document.getElementById('nome').value;
-      const email = document.getElementById('email').value;
-      const mensagem = document.getElementById('mensagem').value;
-
-      alert(`Mensagem enviada com sucesso!\n\nNome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
-      return false; // Simula envio de formulário
-    }
-  </script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
