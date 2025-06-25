@@ -27,4 +27,3 @@ function updateCarousel(slides) {
 setInterval(() => {
     moveSlide(1);  // Move automaticamente a cada 3 segundos
 }, 3000);
-
