@@ -104,3 +104,97 @@ footer {
 .email-box button:hover {
     background-color: #555;
 }
+/* Responsividade Geral */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .carousel-container {
+        height: 50vh;
+    }
+
+    .hero-section {
+        height: 60vh;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-container {
+        height: 40vh;
+    }
+
+    .hero-section {
+        height: 50vh;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header .logo h1 {
+        font-size: 24px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .card-img {
+        height: 180px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .buy-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 15px;
+    }
+}
+
