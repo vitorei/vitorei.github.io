@@ -14,6 +14,8 @@ body {
 }
 h1{
     list-style: none;
+    text-decoration: none;
+    color: inherit;
 }
 
 header {
