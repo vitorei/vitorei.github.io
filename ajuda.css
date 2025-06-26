@@ -12,6 +12,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+h1{
+    list-style: none;
+}
 
 header {
     background-color: #333;
