@@ -1,24 +1,20 @@
-let slideIndex = 0;
+let currentSlide = 0;
 
-function moveSlide(n) {
+function showSlide(index) {
     const slides = document.querySelectorAll('.carousel-item');
-    slideIndex += n;
+    if (index >= slides.length) currentSlide = 0;
+    else if (index < 0) currentSlide = slides.length - 1;
+    else currentSlide = index;
 
-    if (slideIndex < 0) {
-        slideIndex = slides.length - 1;
-    } else if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    }
-
-    updateCarousel(slides);
-}
-
-function updateCarousel(slides) {
-    slides.forEach(slide => {
-        slide.style.transform = `translateX(-${slideIndex * 100}%)`;
+    slides.forEach((slide, i) => {
+        slide.style.display = i === currentSlide ? 'block' : 'none';
     });
 }
 
-setInterval(() => {
-    moveSlide(1);
-}, 4000);
+function moveSlide(step) {
+    showSlide(currentSlide + step);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(0);
+});
