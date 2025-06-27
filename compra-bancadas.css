@@ -8,8 +8,18 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+   background: repeating-linear-gradient(
+  45deg,
+  white 0%,
+  white 20%,
+  gray 20%,
+  gray 40%,
+  beige 40%,
+  beige 60%
+
+   );
     color: #333;
+    animation: backgroundAnimation 15s ease infinite;
   }
   
   /* Barra superior */
@@ -17,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: rgba(128, 128, 128, 0.486) ;
     padding: 20px;
     color: white;
     position: relative;
@@ -80,14 +90,14 @@
   .product-card {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 26px 13px rgba(0, 0, 0, 0.1);
     width: 250px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
   
   .product-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.20);
   }
   
   .product-card img {
@@ -122,7 +132,7 @@
     border: none;
     padding: 10px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 23px;
     cursor: pointer;
   }
   
