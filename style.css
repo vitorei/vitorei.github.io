@@ -199,8 +199,8 @@ footer {
 
     nav ul {
         flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 0px;
+        margin-top: 0px;
     }
 
     .carousel-container {
@@ -242,7 +242,8 @@ footer {
     }
 
     header {
-        padding: 15px 20px;
+      display: flex;
+        padding: 0px 2px;
     }
 
     header .logo h1 {
