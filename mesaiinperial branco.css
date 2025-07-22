@@ -1,0 +1,157 @@
+/* -------------------------
+   Reset e estrutura básica
+---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+
+  /* Flexbox no body para posicionar o footer no fim */
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------
+   Header
+---------------------------- */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #ccc;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* -------------------------
+   Conteúdo principal
+---------------------------- */
+main {
+  flex: 1; /* Ocupa o espaço entre header e footer */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.imagem img {
+  max-width: 100%;
+  width: 500px;
+  border-radius: 8px;
+}
+
+.detalhes {
+  flex: 1;
+  margin-left: 40px;
+  max-width: 500px;
+}
+
+.detalhes h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.descricao {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.preco {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.btn-comprar {
+  background-color: #cc0000;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #990000;
+}
+
+/* -------------------------
+   Footer fixado ao final
+---------------------------- */
+footer {
+  background-color: #222;
+  color: #bbb;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* -------------------------
+   Responsivo
+---------------------------- */
+@media (max-width: 768px) {
+  .produto-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagem img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .detalhes {
+    margin-left: 0;
+  }
+
+  nav {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+}
