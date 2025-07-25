@@ -1,157 +1,108 @@
-/* -------------------------
-   Reset e estrutura básica
----------------------------- */
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  background-color: #f4f4f4;
-
-  /* Flexbox no body para posicionar o footer no fim */
-  display: flex;
-  flex-direction: column;
-}
-
-/* -------------------------
-   Header
----------------------------- */
-header {
-  background-color: #222;
-  color: #fff;
-  padding: 20px 0;
-}
-
-header .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
+.header-container {
+  background-color: #333;
+  color: white;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
-nav {
-  margin-top: 10px;
+.logo h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
 }
 
-nav a {
-  color: #ccc;
-  margin-left: 20px;
+.links a {
+  color: white;
+  margin-left: 15px;
   text-decoration: none;
-  font-size: 1rem;
 }
 
-nav a:hover {
-  color: #fff;
-}
-
-/* -------------------------
-   Conteúdo principal
----------------------------- */
-main {
-  flex: 1; /* Ocupa o espaço entre header e footer */
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+.product-detail {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.imagem img {
-  max-width: 100%;
-  width: 500px;
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
   border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.detalhes {
+.product-image {
   flex: 1;
-  margin-left: 40px;
-  max-width: 500px;
+  min-width: 300px;
+  margin-right: 40px;
 }
 
-.detalhes h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.descricao {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.preco {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #444;
-  margin-bottom: 25px;
-}
-
-.btn-comprar {
-  background-color: #cc0000;
-  color: #fff;
-  padding: 12px 30px;
-  border: none;
+.product-image img {
+  width: 100%;
   border-radius: 6px;
-  font-size: 1.1rem;
+}
+
+.product-description {
+  flex: 2;
+  min-width: 300px;
+}
+
+.product-description h1 {
+  margin-top: 0;
+}
+
+.product-description ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.price {
+  display: block;
+  font-size: 24px;
+  margin: 20px 0;
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+.buy-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.buy-form input[type="number"] {
+  width: 60px;
+  padding: 5px;
+}
+
+.buy-btn {
+  padding: 10px 20px;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.btn-comprar:hover {
-  background-color: #990000;
+.buy-btn:hover {
+  background-color: #246c45;
 }
 
-/* -------------------------
-   Footer fixado ao final
----------------------------- */
 footer {
-  background-color: #222;
-  color: #bbb;
+  background-color: #333;
+  color: white;
   text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-/* -------------------------
-   Responsivo
----------------------------- */
-@media (max-width: 768px) {
-  .produto-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .imagem img {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .detalhes {
-    margin-left: 0;
-  }
-
-  nav {
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-  }
+  padding: 15px;
+  margin-top: 50px;
 }
