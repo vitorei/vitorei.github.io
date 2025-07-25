@@ -8,31 +8,45 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1 class="logo">Marmoraria Marcolino</h1>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="compras.html">Voltar à loja</a>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Marmoraria</h1>
+        <h2>Marcolino</h2>
+      </div>
+      <nav class="links">
+        <a href="../index.html">Início</a>
+        <a href="../ajuda.html">Ajuda</a>
+        <a href="../compra.html">Compra</a>
       </nav>
     </div>
   </header>
 
-  <main class="produto-container">
-    <div class="imagem">
-      <img src="produto2.jpg" alt="Mesa Redonda Carrara" />
+  <main class="product-detail">
+    <div class="product-image">
+      <img src="../imagems/produto2.jpg" alt="Mesa Redonda Carrara" />
     </div>
-    <div class="detalhes">
-      <h2>Mesa Redonda Carrara</h2>
-      <p class="descricao">
-        Mesa de centro com tampo em mármore Carrara, polido. Ideal para salas modernas, combina sofisticação e minimalismo.
-      </p>
-      <p class="preco">R$ 1.299,00</p>
-      <button class="btn-comprar">Comprar Agora</button>
+    <div class="product-description">
+      <h1>Mesa Redonda Carrara</h1>
+      <p>Mesa de centro com tampo em mármore Carrara, polido e elegante. Ideal para salas sofisticadas.</p>
+      <ul>
+        <li>Material: Mármore Carrara Italiano</li>
+        <li>Diâmetro: 100cm</li>
+        <li>Altura: 45cm</li>
+        <li>Base: Madeira maciça</li>
+      </ul>
+      <span class="price">R$ 1.299,00</span>
+      <form class="buy-form">
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+        <button type="submit" class="buy-btn">Comprar</button>
+      </form>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Marmoraria Marcolino</p>
+    <p>&copy; 2025 Marmoraria Marcolino. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="cardsCompra.js"></script>
 </body>
 </html>
