@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Robô de Lata 3D com Interação</title>
+  <title>Robô de Lata 3D Responsivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <style>
     body { margin:0; background: #121212; overflow: hidden; }
     canvas { display: block; }
@@ -16,15 +17,29 @@
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x20232a);
 
-  const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 2, 6);
+  // Configuração inicial da câmera
+  let camera, renderer;
+  let isMobile = window.innerWidth < 600; // breakpoint simples
 
-  const renderer = new THREE.WebGLRenderer({antialias:true});
+  function createCamera() {
+    if (camera) camera = null;
+    if (isMobile) {
+      camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
+      camera.position.set(0, 1.7, 4);
+    } else {
+      camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+      camera.position.set(0, 2, 6);
+    }
+  }
+
+  createCamera();
+
+  renderer = new THREE.WebGLRenderer({antialias:true});
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
   // Luzes
-  const ambientLight = new THREE.AmbientLight(0x404040, 2); 
+  const ambientLight = new THREE.AmbientLight(0x404040, 2);
   scene.add(ambientLight);
 
   const dirLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -52,13 +67,12 @@
   const eyeMaterialOn = new THREE.MeshStandardMaterial({color: 0x00fffc, emissive: 0x00fffc, metalness: 0.5, roughness: 0.1});
   const eyeMaterialOff = new THREE.MeshStandardMaterial({color: 0x002222, emissive: 0x000000, metalness: 0.5, roughness: 0.5});
 
-  // Criar olho esquerdo e direito, como grupos para controlar movimento dos olhos
+  // Olhos como grupos
   const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterialOn);
   const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterialOn);
   leftEye.position.set(-0.4, 0, 0.9);
   rightEye.position.set(0.4, 0, 0.9);
 
-  // Grupo dos olhos para movimentar dentro da cabeça
   const leftEyeGroup = new THREE.Group();
   leftEyeGroup.position.set(-0.4, 2.7, 0);
   leftEyeGroup.add(leftEye);
@@ -75,7 +89,7 @@
   body.position.y = 0.5;
   scene.add(body);
 
-  // Braço esquerdo (para acenar) - tubo e junta
+  // Braço esquerdo (acenando)
   const armMaterial = new THREE.MeshStandardMaterial({
     color: 0x555555,
     metalness: 0.9,
@@ -88,7 +102,6 @@
   const leftUpperArm = new THREE.Mesh(upperArmGeometry, armMaterial);
   const leftJoint = new THREE.Mesh(jointGeometry, armMaterial);
 
-  // Posiciona braço e junta como grupo para facilitar rotação
   const leftArmGroup = new THREE.Group();
   leftUpperArm.position.set(0, -0.6, 0);
   leftUpperArm.rotation.z = Math.PI / 2;
@@ -115,40 +128,53 @@
   rightLeg.position.set(0.6, -1.3, 0);
   scene.add(leftLeg, rightLeg);
 
-  // Variáveis para controlar o movimento do braço acenando
+  // Variáveis para animar o braço acenando
   let armAngle = 0;
   let armDirection = 1;
 
-  // Variáveis para posição do mouse (normalizado -1 a 1)
-  let mouseX = 0;
-  let mouseY = 0;
+  // Variáveis para posição do ponteiro, normalizado
+  let pointerX = 0;
+  let pointerY = 0;
 
-  // Evento para capturar posição do mouse
+  // Função para atualizar posição do mouse/touch
+  function updatePointer(x, y) {
+    pointerX = (x / window.innerWidth) * 2 - 1;
+    pointerY = - (y / window.innerHeight) * 2 + 1;
+  }
+
+  // Mousemove desktop
   window.addEventListener('mousemove', e => {
-    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-    mouseY = - (e.clientY / window.innerHeight) * 2 + 1;
+    updatePointer(e.clientX, e.clientY);
   });
+
+  // Touchmove mobile
+  window.addEventListener('touchmove', e => {
+    if(e.touches.length > 0) {
+      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, {passive:true});
 
   function animate() {
     requestAnimationFrame(animate);
 
-    // Cabeça balança olhando para os lados suavemente
+    // Cabeça balança
     head.rotation.y = Math.sin(Date.now() * 0.001) * 0.3;
 
-    // Braço esquerdo acenando (rotaciona no eixo z)
+    // Braço acenando
     armAngle += 0.03 * armDirection;
     if (armAngle > 0.6) armDirection = -1;
     else if (armAngle < -0.4) armDirection = 1;
     leftArmGroup.rotation.z = armAngle;
 
-    // Olhos seguindo o mouse dentro de limites [-0.15, 0.15]
-    const eyeMaxMove = 0.15;
-    leftEye.position.x = THREE.MathUtils.clamp(mouseX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    leftEye.position.y = THREE.MathUtils.clamp(mouseY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    rightEye.position.x = THREE.MathUtils.clamp(mouseX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    rightEye.position.y = THREE.MathUtils.clamp(mouseY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
+    // Ajusta limite do movimento dos olhos conforme mobile ou desktop
+    const eyeMaxMove = isMobile ? 0.08 : 0.15;
 
-    // Piscar dos olhos rápido e aleatório
+    leftEye.position.x = THREE.MathUtils.clamp(pointerX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
+    leftEye.position.y = THREE.MathUtils.clamp(pointerY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
+    rightEye.position.x = THREE.MathUtils.clamp(pointerX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
+    rightEye.position.y = THREE.MathUtils.clamp(pointerY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
+
+    // Piscar dos olhos
     const blink = (Math.sin(Date.now() * 0.02) > 0.95);
     leftEye.material = blink ? eyeMaterialOff : eyeMaterialOn;
     rightEye.material = blink ? eyeMaterialOff : eyeMaterialOn;
@@ -158,8 +184,10 @@
 
   animate();
 
-  // Responsividade
+  // Responsividade - redimensiona canvas e ajusta câmera
   window.addEventListener('resize', () => {
+    isMobile = window.innerWidth < 600;
+    createCamera();
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
