@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robô Agradecimento</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #mensagem {
+      position: absolute;
+      top: 5%;
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+      color: #fff;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="mensagem">Obrigado por se cadastrar!</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+
+  <script>
+    // Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75, window.innerWidth / window.innerHeight, 0.1, 1000
+    );
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Iluminação
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(20, 20, 20);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    // Corpo do robô
+    const bodyGeometry = new THREE.BoxGeometry(2, 3, 1.5);
+    const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0x5555ff });
+    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+    body.position.y = -1;
+    scene.add(body);
+
+    // Cabeça do robô
+    const headGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+    const headMaterial = new THREE.MeshStandardMaterial({ color: 0x999999 });
+    const head = new THREE.Mesh(headGeometry, headMaterial);
+    head.position.y = 1.5;
+    scene.add(head);
+
+    // Olhos do robô
+    const eyeGeometry = new THREE.SphereGeometry(0.2, 16, 16);
+    const eyeMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    leftEye.position.set(-0.4, 1.6, 0.8);
+    rightEye.position.set(0.4, 1.6, 0.8);
+    scene.add(leftEye);
+    scene.add(rightEye);
+
+    // Pupilas
+    const pupilGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+    const pupilMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
+    const leftPupil = new THREE.Mesh(pupilGeometry, pupilMaterial);
+    const rightPupil = new THREE.Mesh(pupilGeometry, pupilMaterial);
+    leftEye.add(leftPupil);
+    rightEye.add(rightPupil);
+    leftPupil.position.z = 0.2;
+    rightPupil.position.z = 0.2;
+
+    // Posicionamento da câmera
+    camera.position.z = 8;
+
+    // Movimento do mouse
+    let mouseX = 0;
+    let mouseY = 0;
+    document.addEventListener('mousemove', (event) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Animação
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Cabeça segue o mouse suavemente
+      head.rotation.y = mouseX * 0.5;
+      head.rotation.x = mouseY * 0.3;
+
+      // Pupilas se movem dentro dos olhos
+      leftPupil.position.x = THREE.MathUtils.clamp(mouseX * 0.2, -0.1, 0.1);
+      leftPupil.position.y = THREE.MathUtils.clamp(mouseY * 0.2, -0.1, 0.1);
+      rightPupil.position.x = THREE.MathUtils.clamp(mouseX * 0.2, -0.1, 0.1);
+      rightPupil.position.y = THREE.MathUtils.clamp(mouseY * 0.2, -0.1, 0.1);
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Responsividade
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
+
