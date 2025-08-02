@@ -2,8 +2,13 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Robô 3D Agradecimento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robô Agradecimento</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background: #0b0c10;
@@ -15,13 +20,16 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      padding: 20px;
+      text-align: center;
     }
 
     .mensagem {
-      font-size: 1.8rem;
-      margin-top: 30px;
+      font-size: 1.6rem;
+      margin-top: 25px;
       color: #00ffcc;
       animation: fadeIn 2s ease-in-out;
+      max-width: 90%;
     }
 
     @keyframes fadeIn {
@@ -31,8 +39,8 @@
 
     .robo {
       position: relative;
-      width: 200px;
-      height: 250px;
+      width: 180px;
+      height: 230px;
       background: linear-gradient(#2c3e50, #34495e);
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,255,255,0.4);
@@ -43,8 +51,8 @@
     }
 
     .cabeca {
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
       background: #1abc9c;
       border-radius: 50%;
       position: relative;
@@ -57,15 +65,15 @@
       background: white;
       border-radius: 50%;
       position: absolute;
-      top: 50px;
+      top: 45px;
     }
 
     .olho.esquerdo {
-      left: 35px;
+      left: 25px;
     }
 
     .olho.direito {
-      right: 35px;
+      right: 25px;
     }
 
     .pupila {
@@ -80,14 +88,13 @@
     }
 
     .corpo {
-      width: 80px;
-      height: 100px;
+      width: 70px;
+      height: 90px;
       background: #16a085;
       border-radius: 12px;
       margin-top: 10px;
       box-shadow: inset 0 0 8px #0ff;
     }
-
   </style>
 </head>
 <body>
@@ -110,15 +117,16 @@
     const pupilaEsq = document.getElementById("pupila-esq");
     const pupilaDir = document.getElementById("pupila-dir");
 
-    document.addEventListener("mousemove", (e) => {
+    function moverOlhos(x, y) {
       const olhos = document.querySelectorAll(".olho");
+
       olhos.forEach((olho) => {
         const rect = olho.getBoundingClientRect();
         const centroX = rect.left + rect.width / 2;
         const centroY = rect.top + rect.height / 2;
 
-        const deltaX = e.clientX - centroX;
-        const deltaY = e.clientY - centroY;
+        const deltaX = x - centroX;
+        const deltaY = y - centroY;
 
         const angulo = Math.atan2(deltaY, deltaX);
         const distancia = Math.min(8, Math.hypot(deltaX, deltaY) / 10);
@@ -129,7 +137,18 @@
         const pupila = olho.querySelector(".pupila");
         pupila.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
+    }
+
+    document.addEventListener("mousemove", (e) => {
+      moverOlhos(e.clientX, e.clientY);
     });
+
+    document.addEventListener("touchmove", (e) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        moverOlhos(touch.clientX, touch.clientY);
+      }
+    }, { passive: true });
   </script>
 
 </body>
