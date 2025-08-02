@@ -1,198 +1,136 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Robô de Lata 3D Responsivo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Robô 3D Agradecimento</title>
   <style>
-    body { margin:0; background: #121212; overflow: hidden; }
-    canvas { display: block; }
+    body {
+      margin: 0;
+      background: #0b0c10;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .mensagem {
+      font-size: 1.8rem;
+      margin-top: 30px;
+      color: #00ffcc;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .robo {
+      position: relative;
+      width: 200px;
+      height: 250px;
+      background: linear-gradient(#2c3e50, #34495e);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .cabeca {
+      width: 160px;
+      height: 160px;
+      background: #1abc9c;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: inset 0 0 10px #0ff;
+    }
+
+    .olho {
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50px;
+    }
+
+    .olho.esquerdo {
+      left: 35px;
+    }
+
+    .olho.direito {
+      right: 35px;
+    }
+
+    .pupila {
+      width: 12px;
+      height: 12px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      transition: transform 0.1s linear;
+    }
+
+    .corpo {
+      width: 80px;
+      height: 100px;
+      background: #16a085;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: inset 0 0 8px #0ff;
+    }
+
   </style>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
-<script>
 
-  // Cena, câmera e renderizador
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x20232a);
+  <div class="robo">
+    <div class="cabeca">
+      <div class="olho esquerdo">
+        <div class="pupila" id="pupila-esq"></div>
+      </div>
+      <div class="olho direito">
+        <div class="pupila" id="pupila-dir"></div>
+      </div>
+    </div>
+    <div class="corpo"></div>
+  </div>
 
-  // Configuração inicial da câmera
-  let camera, renderer;
-  let isMobile = window.innerWidth < 600; // breakpoint simples
+  <div class="mensagem">🤖 Obrigado pelo cadastro!</div>
 
-  function createCamera() {
-    if (camera) camera = null;
-    if (isMobile) {
-      camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 1.7, 4);
-    } else {
-      camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 2, 6);
-    }
-  }
+  <script>
+    const pupilaEsq = document.getElementById("pupila-esq");
+    const pupilaDir = document.getElementById("pupila-dir");
 
-  createCamera();
+    document.addEventListener("mousemove", (e) => {
+      const olhos = document.querySelectorAll(".olho");
+      olhos.forEach((olho) => {
+        const rect = olho.getBoundingClientRect();
+        const centroX = rect.left + rect.width / 2;
+        const centroY = rect.top + rect.height / 2;
 
-  renderer = new THREE.WebGLRenderer({antialias:true});
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+        const deltaX = e.clientX - centroX;
+        const deltaY = e.clientY - centroY;
 
-  // Luzes
-  const ambientLight = new THREE.AmbientLight(0x404040, 2);
-  scene.add(ambientLight);
+        const angulo = Math.atan2(deltaY, deltaX);
+        const distancia = Math.min(8, Math.hypot(deltaX, deltaY) / 10);
 
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-  dirLight.position.set(5, 10, 7);
-  scene.add(dirLight);
+        const offsetX = Math.cos(angulo) * distancia;
+        const offsetY = Math.sin(angulo) * distancia;
 
-  // Material metálico para o robô
-  const metalMaterial = new THREE.MeshStandardMaterial({
-    color: 0x888888,
-    metalness: 0.8,
-    roughness: 0.2,
-    emissive: 0x111111,
-    clearcoat: 1,
-    clearcoatRoughness: 0.1
-  });
+        const pupila = olho.querySelector(".pupila");
+        pupila.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+    });
+  </script>
 
-  // Cabeça do robô
-  const headGeometry = new THREE.CylinderGeometry(1, 1, 1.5, 32, 1, false);
-  const head = new THREE.Mesh(headGeometry, metalMaterial);
-  head.position.y = 2.5;
-  scene.add(head);
-
-  // Olhos (esferas brilhantes)
-  const eyeGeometry = new THREE.SphereGeometry(0.2, 32, 32);
-  const eyeMaterialOn = new THREE.MeshStandardMaterial({color: 0x00fffc, emissive: 0x00fffc, metalness: 0.5, roughness: 0.1});
-  const eyeMaterialOff = new THREE.MeshStandardMaterial({color: 0x002222, emissive: 0x000000, metalness: 0.5, roughness: 0.5});
-
-  // Olhos como grupos
-  const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterialOn);
-  const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterialOn);
-  leftEye.position.set(-0.4, 0, 0.9);
-  rightEye.position.set(0.4, 0, 0.9);
-
-  const leftEyeGroup = new THREE.Group();
-  leftEyeGroup.position.set(-0.4, 2.7, 0);
-  leftEyeGroup.add(leftEye);
-  scene.add(leftEyeGroup);
-
-  const rightEyeGroup = new THREE.Group();
-  rightEyeGroup.position.set(0.4, 2.7, 0);
-  rightEyeGroup.add(rightEye);
-  scene.add(rightEyeGroup);
-
-  // Corpo
-  const bodyGeometry = new THREE.CylinderGeometry(1.2, 1.2, 3, 32);
-  const body = new THREE.Mesh(bodyGeometry, metalMaterial);
-  body.position.y = 0.5;
-  scene.add(body);
-
-  // Braço esquerdo (acenando)
-  const armMaterial = new THREE.MeshStandardMaterial({
-    color: 0x555555,
-    metalness: 0.9,
-    roughness: 0.25
-  });
-
-  const upperArmGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.2, 32);
-  const jointGeometry = new THREE.SphereGeometry(0.35, 32, 32);
-
-  const leftUpperArm = new THREE.Mesh(upperArmGeometry, armMaterial);
-  const leftJoint = new THREE.Mesh(jointGeometry, armMaterial);
-
-  const leftArmGroup = new THREE.Group();
-  leftUpperArm.position.set(0, -0.6, 0);
-  leftUpperArm.rotation.z = Math.PI / 2;
-  leftJoint.position.set(0, -1.2, 0);
-
-  leftArmGroup.add(leftUpperArm);
-  leftArmGroup.add(leftJoint);
-  leftArmGroup.position.set(-1.6, 1.4, 0);
-  scene.add(leftArmGroup);
-
-  // Braço direito fixo
-  const rightUpperArm = new THREE.Mesh(upperArmGeometry, armMaterial);
-  const rightJoint = new THREE.Mesh(jointGeometry, armMaterial);
-  rightUpperArm.position.set(1.6, 1.4, 0);
-  rightUpperArm.rotation.z = Math.PI / 2;
-  rightJoint.position.set(2.2, 1.4, 0);
-  scene.add(rightUpperArm, rightJoint);
-
-  // Pernas
-  const legGeometry = new THREE.CylinderGeometry(0.5, 0.5, 1.8, 32);
-  const leftLeg = new THREE.Mesh(legGeometry, metalMaterial);
-  const rightLeg = new THREE.Mesh(legGeometry, metalMaterial);
-  leftLeg.position.set(-0.6, -1.3, 0);
-  rightLeg.position.set(0.6, -1.3, 0);
-  scene.add(leftLeg, rightLeg);
-
-  // Variáveis para animar o braço acenando
-  let armAngle = 0;
-  let armDirection = 1;
-
-  // Variáveis para posição do ponteiro, normalizado
-  let pointerX = 0;
-  let pointerY = 0;
-
-  // Função para atualizar posição do mouse/touch
-  function updatePointer(x, y) {
-    pointerX = (x / window.innerWidth) * 2 - 1;
-    pointerY = - (y / window.innerHeight) * 2 + 1;
-  }
-
-  // Mousemove desktop
-  window.addEventListener('mousemove', e => {
-    updatePointer(e.clientX, e.clientY);
-  });
-
-  // Touchmove mobile
-  window.addEventListener('touchmove', e => {
-    if(e.touches.length > 0) {
-      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  }, {passive:true});
-
-  function animate() {
-    requestAnimationFrame(animate);
-
-    // Cabeça balança
-    head.rotation.y = Math.sin(Date.now() * 0.001) * 0.3;
-
-    // Braço acenando
-    armAngle += 0.03 * armDirection;
-    if (armAngle > 0.6) armDirection = -1;
-    else if (armAngle < -0.4) armDirection = 1;
-    leftArmGroup.rotation.z = armAngle;
-
-    // Ajusta limite do movimento dos olhos conforme mobile ou desktop
-    const eyeMaxMove = isMobile ? 0.08 : 0.15;
-
-    leftEye.position.x = THREE.MathUtils.clamp(pointerX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    leftEye.position.y = THREE.MathUtils.clamp(pointerY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    rightEye.position.x = THREE.MathUtils.clamp(pointerX * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-    rightEye.position.y = THREE.MathUtils.clamp(pointerY * eyeMaxMove, -eyeMaxMove, eyeMaxMove);
-
-    // Piscar dos olhos
-    const blink = (Math.sin(Date.now() * 0.02) > 0.95);
-    leftEye.material = blink ? eyeMaterialOff : eyeMaterialOn;
-    rightEye.material = blink ? eyeMaterialOff : eyeMaterialOn;
-
-    renderer.render(scene, camera);
-  }
-
-  animate();
-
-  // Responsividade - redimensiona canvas e ajusta câmera
-  window.addEventListener('resize', () => {
-    isMobile = window.innerWidth < 600;
-    createCamera();
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-</script>
 </body>
 </html>
