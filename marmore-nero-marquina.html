@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mármore Nero Marquina - Marmoraria Marcolino</title>
+  <link rel="stylesheet" href="produto.css"> <!-- Use um CSS próprio ou o existente -->
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Marmoraria</h1>
+        <h2>Marcolino</h2>
+      </div>
+      <nav class="links">
+        <a href="index.html">Início</a>
+        <a href="ajuda.html">Ajuda</a>
+        <a href="compra.html">Todos os Produtos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-detail">
+    <div class="product-image">
+      <img src="imagems/images.jpg" alt="Mármore Nero Marquina">
+    </div>
+
+    <div class="product-description">
+      <h1>Mármore Nero Marquina</h1>
+      <p><strong>Preço:</strong> R$ 639,00</p>
+
+      <p>
+        O <strong>Mármore Nero Marquina</strong> é uma pedra nobre de origem espanhola, famosa pelo seu fundo preto intenso e veios brancos marcantes. 
+        Ideal para bancadas, pisos, paredes, lareiras e peças de decoração sofisticadas.
+      </p>
+
+      <h3>Características:</h3>
+      <ul>
+        <li>Acabamento polido de alto brilho</li>
+        <li>Medidas padrão: 60x120cm</li>
+        <li>Espessura: 2cm</li>
+        <li>Origem: Espanha</li>
+        <li>Indicado para ambientes internos</li>
+      </ul>
+
+      <h3>Vantagens:</h3>
+      <ul>
+        <li>Visual luxuoso e moderno</li>
+        <li>Alta durabilidade</li>
+        <li>Fácil manutenção</li>
+      </ul>
+
+      <form action="finalizar-compra.html" method="GET">
+        <input type="hidden" name="produto" value="Mármore Nero Marquina">
+        <input type="hidden" name="preco" value="639.00">
+        <button type="submit" class="finalizar-btn">Finalizar Compra</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marmoraria Marcolino - Todos os direitos reservados.</p>
+  </footer>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    .header-container {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    .links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .product-detail {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product-image img {
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-description {
+      flex: 1;
+      padding: 1rem 2rem;
+    }
+
+    .product-description h1 {
+      margin-top: 0;
+    }
+
+    .finalizar-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .finalizar-btn:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #222;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</body>
+</html>
