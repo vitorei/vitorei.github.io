@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mesa de Café Nero</title>
+  <link rel="stylesheet" href="mesaiinperial branco.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Marmoraria</h1>
+        <h2>Marcolino</h2>
+      </div>
+      <nav class="links">
+        <a href="../index.html">Início</a>
+        <a href="../ajuda.html">Ajuda</a>
+        <a href="../compra.html">Compra</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-detail">
+    <div class="product-image">
+      <img src="imagems/Mesa-de-Caf-de-Pedestal-em-M-rmore-Nero-Marquina-da-Newstar-Wholesale-Mesa-Lateral-em-M-rmore-Preto.avif" alt="Mesa de Café Nero" />
+    </div>
+    <div class="product-description">
+      <h1>Mesa de Café Nero</h1>
+      <p>
+        Uma mesa lateral sofisticada feita com mármore Nero Marquina, ideal para cafés, ambientes sociais ou cantos de leitura com elegância e charme.
+      </p>
+      <ul>
+        <li>Material: Mármore Nero Marquina</li>
+        <li>Diâmetro: 50cm</li>
+        <li>Altura: 60cm</li>
+        <li>Acabamento: Polido com pedestal refinado</li>
+        <li>Design: Minimalista e moderno</li>
+      </ul>
+      <span class="price">R$ 999,00</span>
+      <form class="buy-form" action="finalizar-compra.html" method="GET">
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+        <input type="hidden" name="produto" value="Mesa de Café Nero">
+        <input type="hidden" name="preco" value="999.00">
+        <button type="submit" class="buy-btn">Finalizar Compra</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marmoraria Marcolino. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="cardsCompra.js"></script>
+</body>
+</html>

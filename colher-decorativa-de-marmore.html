@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colher Decorativa de Mármore</title>
+  <link rel="stylesheet" href="mesaiinperial branco.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Marmoraria</h1>
+        <h2>Marcolino</h2>
+      </div>
+      <nav class="links">
+        <a href="../index.html">Início</a>
+        <a href="../ajuda.html">Ajuda</a>
+        <a href="../compra.html">Compra</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-detail">
+    <div class="product-image">
+      <img src="imagems/f163c23b26ded7dfb8e395ac2a12af14.webp" alt="Colher Decorativa de Mármore" />
+    </div>
+    <div class="product-description">
+      <h1>Colher Decorativa de Mármore</h1>
+      <p>
+        Uma peça artística feita à mão com mármore rajado, perfeita para decorar ambientes sofisticados ou servir com elegância.
+      </p>
+      <ul>
+        <li>Material: Mármore natural rajado</li>
+        <li>Tamanho: 20cm</li>
+        <li>Acabamento: Esculpido artesanalmente</li>
+        <li>Uso: Decoração e uso leve em mesa posta</li>
+        <li>Peça única com veios naturais exclusivos</li>
+      </ul>
+      <span class="price">R$ 69,90</span>
+      <form class="buy-form" action="finalizar-compra.html" method="GET">
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+        <input type="hidden" name="produto" value="Colher Decorativa de Mármore">
+        <input type="hidden" name="preco" value="69.90">
+        <button type="submit" class="buy-btn">Finalizar Compra</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marmoraria Marcolino. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="cardsCompra.js"></script>
+</body>
+</html>

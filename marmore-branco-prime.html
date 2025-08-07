@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mármore Branco Prime</title>
+  <link rel="stylesheet" href="mesaiinperial branco.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Marmoraria</h1>
+        <h2>Marcolino</h2>
+      </div>
+      <nav class="links">
+        <a href="../index.html">Início</a>
+        <a href="../ajuda.html">Ajuda</a>
+        <a href="../compra.html">Compra</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-detail">
+    <div class="product-image">
+      <img src="imagems/BRANCO-PRIME-MAIS-BRANCO-1-1-scaled.webp" alt="Mármore Branco Prime" />
+    </div>
+    <div class="product-description">
+      <h1>Mármore Branco Prime</h1>
+      <p>
+        Bloco de mármore branco puro ideal para projetos personalizados. Alta qualidade, veios sutis e superfície uniforme, perfeito para quem busca sofisticação e leveza no ambiente.
+      </p>
+      <ul>
+        <li>Material: Mármore Branco Prime</li>
+        <li>Dimensões: 60cm x 120cm x 2cm</li>
+        <li>Acabamento: Polido espelhado</li>
+        <li>Indicação: Bancadas, tampos, lavatórios ou revestimentos</li>
+        <li>Alta durabilidade e fácil limpeza</li>
+      </ul>
+      <span class="price">R$ 549,00</span>
+      <form class="buy-form" action="finalizar-compra.html" method="GET">
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+        <input type="hidden" name="produto" value="Mármore Branco Prime">
+        <input type="hidden" name="preco" value="549.00">
+        <button type="submit" class="buy-btn">Finalizar Compra</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marmoraria Marcolino. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="cardsCompra.js"></script>
+</body>
+</html>
