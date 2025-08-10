@@ -1,37 +1,40 @@
-    * {
+arrume esse codigo para algo mais bonito e proficional e diferncial e ajuste tudo para todo tipo de celular {    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+      font-family: Arial, sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        white 0%,
+        white 20%,
+        gray 20%,
+        gray 40%,
+        beige 40%,
+        beige 60%
+      );
       color: #333;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* Header */
     header {
-      background-color: #333;
-      padding: 20px 30px;
+      background-color: rgba(128, 128, 128, 0.486);
+      padding: 20px 40px;
       color: white;
+      position: relative;
     }
 
     .header-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
-      gap: 15px;
-    }
-
-    .logo {
-      flex: 1;
+      flex-wrap: wrap;
     }
 
     .logo h1 {
@@ -40,53 +43,55 @@
     }
 
     .logo h2 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: normal;
       margin-top: 4px;
     }
 
-    /* Search */
+    /* Centraliza a barra de busca */
     .search-bar {
-      flex: 2;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
 
+    /* Formulário de busca */
     #search-form {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 30px;
+      padding: 5px 10px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Wrapper com lupa dentro do input */
+    .search-input-wrapper {
       position: relative;
       width: 100%;
-      max-width: 450px;
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      border-radius: 40px;
-      padding: 2px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     #search {
       width: 100%;
-      padding: 14px 50px 14px 20px;
+      padding: 10px 45px 10px 15px;
+      font-size: 18px;
       border: none;
-      border-radius: 40px;
-      font-size: 16px;
-      color: #fff;
-      background: transparent;
       outline: none;
-      font-weight: 500;
-    }
-
-    #search::placeholder {
-      color: #fff;
-      opacity: 0.8;
+      background: transparent;
     }
 
     .search-button {
       position: absolute;
-      right: 15px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
+      background-color: transparent;
       border: none;
       cursor: pointer;
       padding: 0;
@@ -95,20 +100,11 @@
     .search-button img {
       width: 22px;
       height: 22px;
-      filter: brightness(0) invert(1);
-      transition: opacity 0.3s;
     }
 
-    .search-button img:hover {
-      opacity: 0.8;
-    }
-
-    /* Links */
+    /* Links do menu */
     .links {
-      flex: 1;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
       gap: 20px;
       font-weight: bold;
       font-size: 16px;
@@ -121,47 +117,173 @@
     }
 
     .links a:hover {
-      color: #ff4b2b;
+      color: #e60000;
       text-decoration: underline;
     }
 
-    /* Responsivo */
-    @media (max-width: 768px) {
+    /* Produtos */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 26px 13px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+
+    .product-info span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #e60000;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn {
+      background-color: #e60000;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 23px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-btn:hover {
+      background-color: #c70000;
+    }
+
+    /* Rodapé (opcional) */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 27px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    /* Responsivo - notebooks */
+    @media (max-width: 1024px) {
       .header-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding: 0 20px;
       }
 
-      .logo, .search-bar, .links {
-        width: 100%;
+      .search-bar {
+        margin: 0 20px;
+        max-width: 400px;
       }
 
-      .links {
+      .products {
+        padding: 30px 15px;
+        gap: 15px;
+      }
+
+      .product-card {
+        width: 220px;
+      }
+    }
+
+    /* Responsivo - celulares */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .header-container {
+        flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
       }
 
+      .logo {
+        order: 1;
+        text-align: center;
+        width: 100%;
+      }
+
+      .logo h1 {
+        font-size: 24px;
+      }
+
+      .logo h2 {
+        font-size: 16px;
+      }
+
+      .search-bar {
+        order: 2;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+
       #search {
-        font-size: 15px;
+        font-size: 16px;
+        padding: 10px 40px 10px 10px;
       }
 
       .search-button img {
         width: 20px;
         height: 20px;
       }
-    }
 
-    /* Exemplo de conteúdo abaixo do header */
-    .content {
-      flex: 1;
-      padding: 40px 20px;
-      text-align: center;
-    }
+      .links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+      }
 
-    footer {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      .links a {
+        font-size: 14px;
+      }
+
+      .product-card {
+        width: 90vw;
+      }
+
+      .products {
+        padding: 20px 10px;
+        gap: 15px;
+      }
     }
