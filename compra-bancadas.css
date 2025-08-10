@@ -1,289 +1,193 @@
-arrume esse codigo para algo mais bonito e proficional e diferncial e ajuste tudo para todo tipo de celular {    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+arrume esse codigo para algo mais bonito e proficional e diferncial e ajuste tudo para todo tipo de celular {/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        white 0%,
-        white 20%,
-        gray 20%,
-        gray 40%,
-        beige 40%,
-        beige 60%
-      );
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+body {
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+}
 
-    header {
-      background-color: rgba(128, 128, 128, 0.486);
-      padding: 20px 40px;
-      color: white;
-      position: relative;
-    }
+/* Header */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
-    .logo h1 {
-      font-size: 28px;
-      font-weight: bold;
-    }
+.logo h1 {
+  color: #222;
+  font-size: 24px;
+}
 
-    .logo h2 {
-      font-size: 18px;
-      font-weight: normal;
-      margin-top: 4px;
-    }
+.logo h2 {
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+  margin-top: 5px;
+}
 
-    /* Centraliza a barra de busca */
-    .search-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
+/* Search bar */
+.search-bar {
+  flex: 1;
+  margin: 10px 20px;
+}
 
-    /* Formulário de busca */
-    #search-form {
-      display: flex;
-      align-items: center;
-      background-color: #fff;
-      border: 2px solid #ccc;
-      border-radius: 30px;
-      padding: 5px 10px;
-      width: 400px;
-      max-width: 90%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+#search-form {
+  display: flex;
+  align-items: center;
+}
 
-    /* Wrapper com lupa dentro do input */
-    .search-input-wrapper {
-      position: relative;
-      width: 100%;
-    }
+#search {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
 
-    #search {
-      width: 100%;
-      padding: 10px 45px 10px 15px;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background: transparent;
-    }
+.search-button {
+  background-color: #444;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
 
-    .search-button {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
+.search-button img.lupa-btn {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
 
-    .search-button img {
-      width: 22px;
-      height: 22px;
-    }
+/* Nav links */
+nav.links {
+  display: flex;
+  gap: 20px;
+}
 
-    /* Links do menu */
-    .links {
-      display: flex;
-      gap: 20px;
-      font-weight: bold;
-      font-size: 16px;
-    }
+nav.links a {
+  color: #444;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    .links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+nav.links a:hover {
+  color: #0077cc;
+}
 
-    .links a:hover {
-      color: #e60000;
-      text-decoration: underline;
-    }
+/* Products Section */
+.products {
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
 
-    /* Produtos */
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 40px 20px;
-      justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex: 1;
-    }
+/* Product Card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
 
-    .product-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 26px 13px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      overflow: hidden;
-      transition: transform 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-    }
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
 
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-    .product-info {
-      padding: 15px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.product-info {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .product-info h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+.product-info h3 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 8px;
+}
 
-    .product-info p {
-      font-size: 14px;
-      margin-bottom: 10px;
-      flex-grow: 1;
-    }
+.product-info p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  min-height: 48px;
+}
 
-    .product-info span {
-      font-size: 16px;
-      font-weight: bold;
-      color: #e60000;
-      margin-bottom: 10px;
-    }
+.product-info span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+}
 
-    .buy-btn {
-      background-color: #e60000;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 23px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
+/* Botão de compra */
+.buy-btn {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    .buy-btn:hover {
-      background-color: #c70000;
-    }
+.buy-btn:hover {
+  background-color: #005fa3;
+}
 
-    /* Rodapé (opcional) */
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 27px;
-      width: 100%;
-      margin-top: auto;
-    }
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    /* Responsivo - notebooks */
-    @media (max-width: 1024px) {
-      .header-container {
-        padding: 0 20px;
-      }
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
 
-      .search-bar {
-        margin: 0 20px;
-        max-width: 400px;
-      }
+  nav.links {
+    margin-top: 10px;
+  }
 
-      .products {
-        padding: 30px 15px;
-        gap: 15px;
-      }
-
-      .product-card {
-        width: 220px;
-      }
-    }
-
-    /* Responsivo - celulares */
-    @media (max-width: 600px) {
-      header {
-        padding: 15px 10px;
-      }
-
-      .header-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .logo {
-        order: 1;
-        text-align: center;
-        width: 100%;
-      }
-
-      .logo h1 {
-        font-size: 24px;
-      }
-
-      .logo h2 {
-        font-size: 16px;
-      }
-
-      .search-bar {
-        order: 2;
-        width: 100%;
-        max-width: none;
-        margin: 0;
-      }
-
-      #search {
-        font-size: 16px;
-        padding: 10px 40px 10px 10px;
-      }
-
-      .search-button img {
-        width: 20px;
-        height: 20px;
-      }
-
-      .links {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .links a {
-        font-size: 14px;
-      }
-
-      .product-card {
-        width: 90vw;
-      }
-
-      .products {
-        padding: 20px 10px;
-        gap: 15px;
-      }
-    }
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
