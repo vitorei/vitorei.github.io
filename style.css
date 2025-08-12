@@ -219,12 +219,30 @@ button.next {
 
 /* Responsivo para celular */
 @media (max-width: 768px) {
-  .carousel-item {
-    height: 250px;
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  button.prev, button.next {
-    font-size: 1.5rem;
-    padding: 8px 12px;
+  .search-links-container {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-form {
+    width: 90%;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
   }
 }
+
