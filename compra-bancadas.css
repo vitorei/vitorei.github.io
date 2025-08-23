@@ -1,4 +1,4 @@
-/* Resetando margens e padding */
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +22,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+
 header {
   background-color: rgba(128, 128, 128, 0.486);
   padding: 20px 5%;
@@ -41,7 +41,7 @@ header {
 }
 
 
-/* Logo */
+
 .logo h1 {
   font-size: 28px;
   font-weight: bold;
@@ -191,7 +191,6 @@ header {
   background-color: #c70000;
 }
 
-/* Footer */
 footer {
   background-color: #333;
   color: white;
@@ -201,7 +200,6 @@ footer {
   margin-top: auto;
 }
 
-/* Responsividade para tablets e notebooks */
 @media (max-width: 1024px) {
   .search-bar {
     margin: 0 auto;
@@ -213,7 +211,7 @@ footer {
   }
 }
 
-/* Responsividade para celulares */
+
 @media (max-width: 600px) {
   .header-container {
     flex-direction: column;

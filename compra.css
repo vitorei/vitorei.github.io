@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,7 @@ body {
     padding-top: 100px;
 }
 
-/* Cabeçalho herdado */
+
 header {
     position: fixed;
     top: 0;
@@ -50,7 +49,6 @@ nav ul li a:hover {
     color: #ffcc00;
 }
 
-/* Título e descrição da página */
 .section {
     max-width: 1200px;
     margin: auto;
@@ -74,7 +72,6 @@ nav ul li a:hover {
     margin-bottom: 40px;
 }
 
-/* Cards de produto */
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -113,7 +110,7 @@ nav ul li a:hover {
     padding: 0 15px;
 }
 
-/* Botão de compra */
+
 .buy-button {
     display: inline-block;
     background-color: #333;
@@ -132,7 +129,7 @@ nav ul li a:hover {
     color: #000;
 }
 
-/* Rodapé */
+
 footer {
     background-color: #222;
     padding: 20px;
@@ -141,7 +138,7 @@ footer {
     font-size: 14px;
     margin-top: 40px;
 }
-/* Responsividade Geral */
+
 @media (max-width: 1024px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr);

@@ -1,11 +1,10 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
@@ -13,7 +12,6 @@ body {
     line-height: 1.6;
 }
 
-/* Cabeçalho */
 header {
     background-color: #222;
     color: white;
@@ -46,17 +44,13 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Carrossel */
+
 .hero-section {
     margin-top: -20px; /* Ajuste para subir mais perto do topo */
     position: relative;
     overflow: hidden;
 }
 
-
-
-
-/* Botões de navegação do carrossel */
 .prev,
 .next {
     position: absolute;
@@ -85,7 +79,7 @@ nav ul li a:hover {
     right: 15px;
 }
 
-/* Seções gerais */
+
 .section {
     padding: 50px 20px;
     text-align: center;
@@ -104,7 +98,7 @@ nav ul li a:hover {
     font-size: 18px;
 }
 
-/* Cards */
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -141,7 +135,6 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-/* Animações simples */
 .fade-in {
     animation: fadeIn 1.5s ease-in;
 }
@@ -186,10 +179,10 @@ footer {
   flex: 0 0 100%;
   max-width: 100%;
   height: 400px;
-  object-fit: cover; /* Faz a imagem preencher e manter o aspecto */
+  object-fit: cover;
 }
 
-/* Botões de navegação */
+
 button.prev, button.next {
   position: absolute;
   top: 50%;
@@ -217,7 +210,7 @@ button.next {
   right: 10px;
 }
 
-/* Responsivo para celular */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
