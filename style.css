@@ -119,7 +119,8 @@ nav ul li a:hover {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-12px);
+    box-shadow: 0 16px 40px rgba(212, 175, 55, 0.4);
 }
 
 .card-img {
