@@ -241,5 +241,6 @@ button.next {
 }
 
 .logo img{
-  height: 8px;
+    width: 200px;  
+  height: auto; 
 }
