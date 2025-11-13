@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -44,9 +43,8 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-
 .hero-section {
-    margin-top: -20px; /* Ajuste para subir mais perto do topo */
+    margin-top: -20px;
     position: relative;
     overflow: hidden;
 }
@@ -79,7 +77,6 @@ nav ul li a:hover {
     right: 15px;
 }
 
-
 .section {
     padding: 50px 20px;
     text-align: center;
@@ -97,7 +94,6 @@ nav ul li a:hover {
     margin: 0 auto 20px;
     font-size: 18px;
 }
-
 
 .card-container {
     display: flex;
@@ -162,6 +158,7 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -180,9 +177,14 @@ footer {
   flex: 0 0 100%;
   max-width: 100%;
   height: 400px;
-  object-fit: cover;
 }
 
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 button.prev, button.next {
   position: absolute;
@@ -210,7 +212,6 @@ button.prev {
 button.next {
   right: 10px;
 }
-
 
 @media (max-width: 768px) {
   header {
@@ -240,11 +241,15 @@ button.next {
   }
 }
 
-.logo img{
-    width: 74px;  
-  height: auto; 
-}
-.imagem_1{
+.logo img {
   width: 74px;  
   height: auto; 
+}
+
+
+.imagem_1 {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; 
 }
